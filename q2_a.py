@@ -5,7 +5,8 @@ def calculate_inverse_matrix(mat: numpy.ndarray) -> numpy.ndarray:
     return numpy.linalg.inv(mat)
 
 
-def calculate_x_matrix(A_mat: numpy.ndarray, b_mat: numpy.ndarray) -> numpy.ndarray:
+def calculate_x_matrix(A_mat: numpy.ndarray,
+                       b_mat: numpy.ndarray) -> numpy.ndarray:
     A_inv_mat = calculate_inverse_matrix(A_mat)
     return numpy.dot(A_inv_mat, b_mat)
 

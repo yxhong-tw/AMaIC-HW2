@@ -4,7 +4,9 @@ import scipy
 from typing import Tuple
 
 
-def calculate_LU(mat: numpy.ndarray) -> Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]:
+def calculate_LU(
+        mat: numpy.ndarray
+) -> Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]:
     _, L_mat, U_mat = scipy.linalg.lu(mat)
     return L_mat, U_mat
 
