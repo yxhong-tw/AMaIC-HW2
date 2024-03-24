@@ -8,10 +8,10 @@ def main():
     A_mat = numpy.array([[2, -3, 1], [3, 2, -5], [1, 4, -1]])
     b_mat = numpy.array([[1], [-1], [2]])
 
-    L_mat, U_mat = calculate_LU(A_mat)
+    L_mat, U_mat = calculate_LU(mat=A_mat)
 
-    y = calculate_x_matrix(L_mat, b_mat)
-    x = calculate_x_matrix(U_mat, y)
+    y = calculate_x_matrix(A_mat=L_mat, b_mat=b_mat)
+    x = calculate_x_matrix(A_mat=U_mat, b_mat=y)
 
     print(f"x matrix: {x}")
 

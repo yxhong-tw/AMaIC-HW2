@@ -2,7 +2,7 @@ import numpy
 
 
 def calculate_condition_number(mat: numpy.ndarray) -> float:
-    return numpy.linalg.cond(mat)
+    return numpy.linalg.cond(x=mat)
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
     }
 
     for name, mat in questions.items():
-        condition_number = calculate_condition_number(mat)
+        condition_number = calculate_condition_number(mat=mat)
 
         print(f"Condition number of matrix {name}: {condition_number}")
 
