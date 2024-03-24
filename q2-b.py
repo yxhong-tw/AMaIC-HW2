@@ -1,10 +1,17 @@
 import numpy
 import scipy
 
+from typing import Tuple
+
+
+def calculate_LU(mat: numpy.ndarray) -> Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]:
+    _, L_mat, U_mat = scipy.linalg.lu(mat)
+    return L_mat, U_mat
+
 
 def main():
     A_mat = numpy.array([[2, -3, 1], [3, 2, -5], [1, 4, -1]])
-    _, L_mat, U_mat = scipy.linalg.lu(A_mat)
+    _, L_mat, U_mat = calculate_LU(A_mat)
 
     L_mat_size = L_mat.shape[0]
     for i in range(1, L_mat_size):
