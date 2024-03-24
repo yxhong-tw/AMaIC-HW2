@@ -8,15 +8,16 @@ def get_lagrange_polynomial_func(x: numpy.ndarray, y: numpy.ndarray):
     return scipy.interpolate.lagrange(x, y)
 
 
-def print_lagrange_polynomial_figure(x: numpy.ndarray, y: numpy.ndarray,
+def print_figure(x: numpy.ndarray, y: numpy.ndarray,
                                      x_new: numpy.ndarray,
-                                     y_new: numpy.ndarray):
+                                     y_new: numpy.ndarray,
+                                     figure_name: str):
     figure = plt.figure(figsize=(10, 8))
 
     plt.plot(x, y, label="Original")
     plt.plot(x_new, y_new, label="New")
 
-    plt.title("Lagrange Polynomial")
+    plt.title(figure_name)
     plt.grid()
     plt.xlabel("x")
     plt.ylabel("y")
@@ -33,7 +34,7 @@ def main():
     x_new = numpy.array([item for item in numpy.arange(0, 4, 0.2)])
     y_new = lp_func(x_new)
 
-    print_lagrange_polynomial_figure(x, y, x_new, y_new)
+    print_figure(x, y, x_new, y_new, "Lagrange Polynomial")
 
 
 if __name__ == "__main__":
