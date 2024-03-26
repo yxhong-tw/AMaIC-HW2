@@ -1,6 +1,10 @@
 import numpy
 
 
+def calculate_determinant(mat: numpy.ndarray) -> float:
+    return numpy.linalg.det(a=mat)
+
+
 def calculate_condition_number(mat: numpy.ndarray) -> float:
     return numpy.linalg.cond(x=mat)
 
@@ -19,14 +23,17 @@ def main():
     }
 
     for name, mat in questions.items():
-        condition_number = calculate_condition_number(mat=mat)
-
-        print(f"Condition number of matrix {name}: {condition_number}")
-
-        if condition_number < 10:
-            print(f"Matrix {name} is well-conditioned.")
+        determinant = calculate_determinant(mat=mat)
+        if determinant == 0:
+            print(f"Matrix {name} is singular.")
         else:
-            print(f"Matrix {name} is ill-conditioned.")
+            print(f"Matrix {name} is non-singular (determinant = {determinant}).")
+
+        condition_number = calculate_condition_number(mat=mat)
+        if condition_number < 10:
+            print(f"Matrix {name} is well-conditioned (condition number = {condition_number}).")
+        else:
+            print(f"Matrix {name} is ill-conditioned (condition number = {condition_number}).")
 
         print()
 
