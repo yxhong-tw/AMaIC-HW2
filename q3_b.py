@@ -14,10 +14,15 @@ def main():
 
     cs_func = get_cubic_spline_func(x=x, y=y)
 
-    x_new = numpy.array([item for item in numpy.arange(0, 4, 0.2)])
+    x_new = numpy.append(
+        numpy.array([item for item in numpy.arange(0, 4, 0.2)]), 4)
     y_new = cs_func(x_new)
 
-    print_figure(x=x, y=y, x_new=x_new, y_new=y_new, figure_name="Cubic Spline")
+    print_figure(x=x,
+                 y=y,
+                 x_new=x_new,
+                 y_new=y_new,
+                 figure_name="Cubic Spline")
 
 
 if __name__ == "__main__":
