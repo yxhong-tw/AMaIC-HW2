@@ -12,8 +12,8 @@ def print_figure(x: numpy.ndarray, y: numpy.ndarray, x_new: numpy.ndarray,
                  y_new: numpy.ndarray, figure_name: str):
     figure = plt.figure(figsize=(10, 8))
 
-    plt.plot(x, y, label="Original")
-    plt.plot(x_new, y_new, label="New")
+    plt.plot(x_new, y_new, 'ro', label="New")
+    plt.plot(x, y, 'bo', label="Original")
 
     plt.title(figure_name)
     plt.grid()
@@ -29,7 +29,8 @@ def main():
 
     lp_func = get_lagrange_polynomial_func(x=x, y=y)
 
-    x_new = numpy.array([item for item in numpy.arange(0, 4, 0.2)])
+    x_new = numpy.append(
+        numpy.array([item for item in numpy.arange(0, 4, 0.2)]), 4)
     y_new = lp_func(x_new)
 
     print_figure(x=x,
