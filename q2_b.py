@@ -1,13 +1,17 @@
 import numpy
-import scipy
 
+from scipy.sparse.linalg import splu
 from typing import Tuple
 
 
-def calculate_LU(
-        mat: numpy.ndarray
-) -> Tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]:
-    _, L_mat, U_mat = scipy.linalg.lu(mat)
+def calculate_LU(mat: numpy.ndarray) -> Tuple[numpy.ndarray, numpy.ndarray]:
+    slu = splu(mat,
+               permc_spec="NATURAL",
+               diag_pivot_thresh=0,
+               options={"SymmetricMode": True})
+    L_mat = slu.L.toarray()
+    U_mat = slu.U.toarray()
+
     return L_mat, U_mat
 
 
